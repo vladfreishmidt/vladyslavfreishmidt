@@ -4,7 +4,7 @@
     <title>test task JavaScript advanced</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -22,7 +22,6 @@
     </div><!-- /.top-cart -->
 
 
-
     <header class="top-header">
         <div class="container">
             <h1>Welcome to our site</h1>
@@ -37,8 +36,8 @@
                     <select class="select-control" id="select-category">
                         <option value="0">Все</option>
                         <option value="1">Завтраки</option>
-                        <option  value="2">Первые блюда</option>
-                        <option  value="3">Гарниры</option>
+                        <option value="2">Первые блюда</option>
+                        <option value="3">Гарниры</option>
                     </select>
                 </div><!-- /.select-box -->
                 <div class="price-select-box">
@@ -52,7 +51,6 @@
                     </select>
                 </div><!-- /.price-select-box -->
             </div><!-- /filter-box-->
-
 
 
             <div class="products-box grid-box">
@@ -169,7 +167,7 @@
 
                     </div>
                 </div>
-                <div class="product-box__item" data-price="100"data-category="2">
+                <div class="product-box__item" data-price="100" data-category="2">
                     <h3 class="product-box__title">Суп Кюфта Бозбаш</h3>
                     <div class="product-box__img">
                         <img class="img-fluid" src="i/im9.jpg">
@@ -237,13 +235,33 @@
             <div class="footer-row">
                 <div class="col-md-3">Beetroot &copy;2018</div>
                 <div class="col-md-9 text-center">
-                    <a target="_blank" href="https://academy.beetroot.se/?">Bettroot academy  2018</a>
+                    <a target="_blank" href="https://academy.beetroot.se/?">Bettroot academy 2018</a>
                 </div>
             </div>
         </div>
     </footer>
 </div><!-- /.app-container -->
 
+<!-- Modal start -->
+<div class="modal-overlay" id="modal">
+    <div class="modal-window">
+        <form id="form">
+            <div class="form-group form-group--close">
+                <span class="close-btn" data-btn="close">&times;</span>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Имя" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <button class="submit-btn" type="submit" data-btn="submit">Отправить</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Modal end -->
 
 <script src="js/script.js"></script>
 </body>

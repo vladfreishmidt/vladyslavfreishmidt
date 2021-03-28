@@ -3,10 +3,15 @@ let allMeals = document.querySelectorAll('.product-box__item');
 const cartQty = document.querySelector('#cart-qty');
 const cartPrice = document.querySelector('#cart-price');
 const qtyInput = document.querySelector('.qty__item');
+const modal = document.querySelector('#modal');
+const form = document.querySelector('#form');
+const nameInput = form.querySelector('input[type=text]');
+const emailInput = form.querySelector('input[type=email]');
 let qty;
 
 
 // Set default meal quantity for all the inputs
+
 let qtyInputAll = document.querySelectorAll('.qty__item');
 qtyInputAll = Array.from(qtyInputAll).map(input => {
   input.defaultValue = '1';
@@ -14,20 +19,27 @@ qtyInputAll = Array.from(qtyInputAll).map(input => {
 
 
 // Event handlers
+
 document.addEventListener('click', clickHandler);
 document.addEventListener('change', qtyChangeHandler);
 
 function clickHandler(e) {
-  const {target} = e;
+  const {target, type} = e;
 
-  if(target.dataset.btn === "add") {
-    let currentQty = +target.previousElementSibling.firstElementChild.value;
-
-    addToCart(target.parentNode.parentNode, currentQty);
-  }
-
-  if(target.dataset.btn === "checkout") {
-    showModal();
+  switch(target.dataset.btn) {
+    case "add":
+      let currentQty = +target.previousElementSibling.firstElementChild.value;
+      addToCart(target.parentNode.parentNode, currentQty);
+      break;
+    case "checkout":
+      showModal();
+      break;
+    case "close":
+      closeModal();
+      break;
+    case "submit":
+      formSubmit(e);
+      break;
   }
 }
 
@@ -42,6 +54,7 @@ function qtyChangeHandler(e) {
 
 
 // Update cart info
+
 let mealsInCart = 0;
 let totalPrice = 0;
 
@@ -57,6 +70,7 @@ function addToCart(product, qty=1)  {
 
 
 //Filter by category and price
+
 const categoryFilterInput = document.querySelector('#select-category');
 const priceFilterInput = document.querySelector('#select-price');
 
@@ -74,21 +88,47 @@ document.addEventListener('change', (e) => {
       meal.style.display = "block";
     } else {
       meal.style.display = "none";
-
     }
   });
 });
 
 
 // Show Modal
-function showModal() {
 
-  // Reset cart f
+function showModal() {
+  modal.classList.add('show');
+}
+
+function closeModal() {
+  modal.classList.remove('show');
+  nameInput.value = '';
+  emailInput.value ='';
+}
+
+function resetCart() {
   mealsInCart = 0;
   totalPrice = 0;
   cartQty.innerText = mealsInCart;
   cartPrice.innerText = totalPrice;
 }
+
+
+// Submit form
+
+function formSubmit(e) {
+  e.preventDefault();
+
+  if(!nameInput.value.trim() || !emailInput.validity.valid) {
+    alert('Пожалуйста проверьте поля формы');
+  } else {
+    alert('Спасибо за покупки!');
+    resetCart();
+  }
+}
+
+
+
+
 
 
 

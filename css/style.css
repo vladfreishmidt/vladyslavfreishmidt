@@ -196,3 +196,72 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-around;
 }
+
+/* Modal styles */
+
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.modal-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-window {
+    background-color: #fff;
+    width: 350px;
+    min-height: 180px;
+    padding: 30px 20px 20px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.form-group--close {
+    text-align: right;
+}
+
+.close-btn {
+    cursor:pointer;
+    font-size: 25px;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+}
+
+.submit-btn {
+    border: 0;
+    padding: 4px 8px;
+    background: #2a6496;
+    color: #fff;
+    cursor: pointer;
+}
