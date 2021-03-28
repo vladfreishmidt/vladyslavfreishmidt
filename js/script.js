@@ -123,6 +123,7 @@ function formSubmit(e) {
   } else {
     alert('Спасибо за покупки!');
     resetCart();
+    closeModal();
   }
 }
 
